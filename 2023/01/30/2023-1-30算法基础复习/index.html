@@ -9,7 +9,7 @@
     
     <title>
         
-            第一篇博客 |
+            2023-1-30算法基础复习 |
         
         Tzuhan
     </title>
@@ -177,7 +177,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">第一篇博客</span>
+                <span class="title-hover-animation">2023-1-30算法基础复习</span>
             </div>
 
             
@@ -197,13 +197,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-01-23 19:44:07</span>
-        <span class="mobile">2023-01-23 19:44</span>
+        <span class="pc">2023-01-30 21:34:02</span>
+        <span class="mobile">2023-01-30 21:34</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-01-23 20:28:39</span>
+        <span class="pc">2023-01-30 21:37:25</span>
     </span>
     
     
@@ -212,7 +212,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E6%9D%82%E8%AF%AD/">杂语</a>&nbsp;
+                        <a href="/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0/">基础算法复习</a>&nbsp;
                     </li>
                 
             </ul>
@@ -224,7 +224,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E6%9D%82%E8%AF%AD/">杂语</a>&nbsp;
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
                     </li>
                 
             </ul>
@@ -234,12 +234,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>380 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>629 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -257,12 +257,20 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <p>折腾了许久，终于完成的自己的博客。</p>
-<p>建站之初，计划使用 <strong>React</strong> + <strong>Gin</strong> 进行博客的搭建，但最终还是放弃了，自己的审美实在过于糟糕，况且，写前端的时间足够学习很多东西，手撸一个博客对于一名大三在校生而言有些过于浪费时间了。</p>
-<p>最终选用 <strong>Hexo</strong> 进行博客的搭建，Hexo可以解析 <strong>MarkDown</strong> 文本，生成静态 <strong>HTML</strong> 页面，最最最重要的是，<strong>Hexo</strong> 提供了许多现成的主题，对主题不满意的地方可以直接对 <strong>CSS</strong> 进行修改，在魔改了两天之后，博客网站的样式终于到了我的审美上。</p>
-<p>博客采用 <strong>GitHub Page</strong> 进行部署，每一篇文章的更新相当于用 <strong>GIT</strong> 将代码提交到仓库里，再对仓库的 <strong>Custom domain</strong> 进行设置，把域名添加到上面，这样就可以直接通过域名对博客进行访问了。</p>
-<p>说到域名，还踩了很多坑，在腾讯云进行域名解析时，可以直接把记录类型设置为 <strong>CNAME</strong> 之后对 <strong>ping</strong> 一下仓库的地址，填到记录值上就好了，除此之外要在项目的 <strong>Source</strong> 文件夹下新建一个CNAME 文件，把域名填到里面，不然每次 <strong>commit</strong> 都要在仓库里重新绑定域名，离谱的很！</p>
-<p>搭建博客是为了督促自己多学习，多更新技术文章，希望能做到😢</p>
+                <h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><ul>
+<li>确定分界点x，通常选取左端点，中间值或右端点</li>
+<li>调整区间，使得左区间都小于等于x，右区间都大于等于x</li>
+<li>递归处理左右两段<br>调整区间的思路：<br>当 <code>q[i] &lt; x</code> 或者 <code>q[j] &gt; x</code>时，双指针不停向中间移动，当两者都不满足条件，且<code>i &lt; j</code>时，交换值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void quick_sort(int q[], int l, int r)&#123;</span><br><span class="line">    if(l &gt;= r) return;</span><br><span class="line">    int x = q[(l + r) / 2], I = l - 1, j = r + 1;</span><br><span class="line">    while(i &lt; j)&#123;</span><br><span class="line">        do i++; while(q[i] &lt; x);</span><br><span class="line">        do j—-; while(q[j] &gt; x);</span><br><span class="line">        if(i &lt; j) swap(q[i], q[j]); </span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(q, l, j);</span><br><span class="line">    quick_sort(q, j+1, r);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><ul>
+<li>选取中间点<code>mid = （1 + r） / 2</code></li>
+<li>递归左右两区间，得到单调递增的左右区间</li>
+<li>归并左右两区间<br>归并区间的思路：<br>开辟新数组tmp，双指针i, j 分别指向两个区间的端点，将i, j指针指向较小的数放入tmp，当某段区间结束时，将另一段区间剩余的数直接接到ans数组最后。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void merge_sort(int q[], int l, int r)&#123;</span><br><span class="line">    if(l &lt;= r) return;</span><br><span class="line">    int mid = l + r &gt;&gt; 1;</span><br><span class="line">    merge_sort(q, l, mid), merge_sort(q, mid + 1, r);</span><br><span class="line">    int i = l, j = mid + 1, k = 0;</span><br><span class="line">    while(i &lt;= mid &amp;&amp; j &lt;= r)&#123;</span><br><span class="line">        if(q[i] &lt;= q[j]) tmp[k++] = q[i++];</span><br><span class="line">        else tmp[k++] = q[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    while(l &lt;= mid) tmp[k++] = q[i++];</span><br><span class="line">    while(j &lt;= r) tmp[k++] = q[j++];</span><br><span class="line">    for(i = l, j = 0; i &lt; r; i++, j++) q[i] = tmp[j];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h2><p>取中间值时需要注意，如果<code>r = mid</code>则中值取<code>l + r &gt;&gt; 1</code>，如果是<code>l = mid</code>则中值取<code>l + r + 1 &gt;&gt;1</code><br>题目示例：数的范围<br>给定一个按照升序排列的长度为n的整数数组，以及q个查询。对于每个查询，返回一个元素k的起始位置和终止位置（位置从0开始计数）。如果数组中不存在该元素，则返回<code>-1 -1</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">    while(queryCount—-)&#123;</span><br><span class="line">        int l = 0, r = n - 1;</span><br><span class="line">        while(l &lt; r)&#123;</span><br><span class="line">            int mid = l + r &gt;&gt; 1;</span><br><span class="line">            if(q[mid] &gt;= x) r = mid;</span><br><span class="line">            else l = mid + 1; </span><br><span class="line">        &#125;</span><br><span class="line">        if(q[l] != x) cout &lt;&lt; “-1 -1” &lt;&lt; endl;</span><br><span class="line">        else &#123;</span><br><span class="line">            cout &lt;&lt; l &lt;&lt; “ ”;</span><br><span class="line">            int l = 0; r = n - 1; </span><br><span class="line">            while(l &lt; r)&#123;</span><br><span class="line">                int mid = l + r + 1 &gt;&gt; 1;</span><br><span class="line">                if(q[mid] &lt;= x) l = mid;</span><br><span class="line">                else r = mid - 1;</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; l &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="浮点数二分"><a href="#浮点数二分" class="headerlink" title="浮点数二分"></a>浮点数二分</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">    double l = 0, r = x;</span><br><span class="line">    while(r - 1 &gt; 1e-6)&#123;</span><br><span class="line">        double mid = (l + r) / 2;</span><br><span class="line">        if(mid * mid &gt;= x) r = mid;</span><br><span class="line">        else l = mid;    </span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
             </div>
 
@@ -272,7 +280,7 @@
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/%E6%9D%82%E8%AF%AD/">#杂语</a>&nbsp;
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -284,18 +292,33 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/2023/01/30/2023-1-30%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"
+                               href="/2023/01/30/2023-1-30Go%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">2023-1-30算法基础复习</span>
+                                <span class="post-nav-title-item">2023-1-30Go基础复习</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
                         </div>
                     
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/01/23/first-post/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">第一篇博客</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
                     
                 </div>
             
@@ -393,7 +416,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">整数二分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E4%BA%8C%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">浮点数二分</span></a></li></ol>
     </div>
 </div>
 
