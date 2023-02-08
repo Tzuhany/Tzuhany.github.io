@@ -203,7 +203,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-02-09 01:18:30</span>
+        <span class="pc">2023-02-09 01:57:50</span>
     </span>
     
     
@@ -234,7 +234,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>481 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>509 字</span>
         </span>
     
     
@@ -257,8 +257,7 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h2 id="高精度"><a href="#高精度" class="headerlink" title="高精度"></a>高精度</h2><p>大整数存储：<br>使用数组存取大整数，由于在数组的末尾添加值要比在开头添加容易，因此数组的<code>0</code>位一般存取大整数的个位。<br>高精度在很多需要求补位的题目中会遇到。</p>
-<p>高精度加法：</p>
+                <h2 id="高精度"><a href="#高精度" class="headerlink" title="高精度"></a>高精度</h2><p>大整数存储：<br>使用数组存取大整数，由于在数组的末尾添加值要比在开头添加容易，因此数组的<code>0</code>位一般存取大整数的个位。<br>高精度在很多需要求补位的题目中会遇到，详情见Leetcode。<br>高精度加法：<br>代码中使用<code>k</code>表示进位，每次循环计算两数相加结果和<code>k</code>.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">add</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;A, vector&lt;<span class="type">int</span>&gt; &amp;B)</span></span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; C;</span><br><span class="line">    <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; A.<span class="built_in">size</span>() || i &lt; B.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="comment">//A + B结果存到t中</span></span><br><span class="line">        <span class="keyword">if</span>(i &lt; A.<span class="built_in">size</span>()) t += A[i];</span><br><span class="line">        <span class="keyword">if</span>(i &lt; B.<span class="built_in">size</span>()) t += B[i];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//个位存到C中</span></span><br><span class="line">        C.<span class="built_in">push_back</span>(t % <span class="number">10</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如果t &gt; 10, t取进位</span></span><br><span class="line">        t /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(t) C.<span class="built_in">push_back</span>(t);</span><br><span class="line">    <span class="keyword">return</span> C;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>高精度减法：</p>

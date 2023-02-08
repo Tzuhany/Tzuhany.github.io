@@ -249,9 +249,9 @@
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        哈希拉链法对于数x，使用某个质数令x取模后，把余数作为下标存储，发生哈希冲突时，将发生冲突的数像链表一样接到发生冲突的数后面。
-模拟散列表：
-123456789101112131415161718192021222324252627282930313...
+                        哈希在题目中通常使用Map容器和Set容器来进行哈希操作，哈希的实现主要有两种，分别是拉链法和开放寻址法（蹲坑法？）
+拉链法对于数x，使用某个质数令x取模后，把余数作为下标存储，发生哈希冲突时，将发生冲突的数像链表一样接到发生冲突的数后面。
+模拟散列...
                     
                 </div>
 
@@ -259,7 +259,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:24:57 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:59:39 GMT+0800">
                 2023-02-09
             </span>
         </span>
@@ -358,7 +358,7 @@
                 <div class="home-article-content keep-markdown-body">
                     
                         数组模拟静态链表使用数组模拟静态链表速度要显著快于使用结构体。
-1234567891011121314151617181920212223242526272829303132#include&lt;iostream&gt;using namespac...
+代码中head表示头节点指向的位置，e[N]表示该节点的值，ne[N]表示节点指向的下一个节点的索引，idx表示当前节点的索引，代码中展示了三种链表的基本操作，分别是头节点插入，任意节点...
                     
                 </div>
 
@@ -366,7 +366,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:19:12 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:54:59 GMT+0800">
                 2023-02-09
             </span>
         </span>
@@ -391,9 +391,8 @@
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        高精度大整数存储：使用数组存取大整数，由于在数组的末尾添加值要比在开头添加容易，因此数组的0位一般存取大整数的个位。高精度在很多需要求补位的题目中会遇到。
-高精度加法：
-1234567891011121314151617vector&lt;int&g...
+                        高精度大整数存储：使用数组存取大整数，由于在数组的末尾添加值要比在开头添加容易，因此数组的0位一般存取大整数的个位。高精度在很多需要求补位的题目中会遇到，详情见Leetcode。高精度加法：代码中使用k表示进位，每次循环计算两数相加结果和k.
+123...
                     
                 </div>
 
@@ -401,7 +400,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:18:30 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:57:50 GMT+0800">
                 2023-02-09
             </span>
         </span>
