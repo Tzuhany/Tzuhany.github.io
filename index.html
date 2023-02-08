@@ -22,7 +22,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp","favicon":"https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp","avatar":"https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp","font_size":null,"font_family":"STKaiti","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"日子匆匆穿我而行.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"valine","valine":{"appid":"lPxOIP1QVgXhErOMQpnwOEph-gzGzoHsz","appkey":"BjL7rBxfsUysNgHMeCxstzeN","server_urls":null,"placeholder":"尽情吐槽把~"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp","favicon":"https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp","avatar":"https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp","font_size":null,"font_family":"STKaiti","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bgc.jpg","description":"日子匆匆穿我而行.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"valine","valine":{"appid":"lPxOIP1QVgXhErOMQpnwOEph-gzGzoHsz","appkey":"BjL7rBxfsUysNgHMeCxstzeN","server_urls":null,"placeholder":"尽情吐槽把~"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
     KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
     KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
@@ -249,8 +249,9 @@
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        哈希拉链法对于数x，使用某个质数令x取模后，把余数作为下标存储，发生哈希冲突时，将发生冲突的数像链表一样接到发生冲突的数后面。模拟散列表：
-1234567891011121314151617181920212223242526272829303132...
+                        哈希拉链法对于数x，使用某个质数令x取模后，把余数作为下标存储，发生哈希冲突时，将发生冲突的数像链表一样接到发生冲突的数后面。
+模拟散列表：
+123456789101112131415161718192021222324252627282930313...
                     
                 </div>
 
@@ -258,7 +259,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:49:15 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:16:23 GMT+0800">
                 2023-02-09
             </span>
         </span>
@@ -320,8 +321,10 @@
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        Trie树用来快速存储和查找字符串集合的数据结构Trie的插入和查询操作
-12345678910111213141516171819202122232425262728/*假设有下标为x的点son[x][]为下标x节点的所有子节点，son[x][0]...
+                        并查集通常用于
+
+将两个集合合并
+查询两个元素是否在同一个集合中基本原理：每个集合用一颗树来表示，每个节点都存储其父节点，树根的编号就是集合的编号。判断树根：p[x] == x求x的集合编号：while(p[x] != x) x = p[x]，优化，...
                     
                 </div>
 
@@ -329,7 +332,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:50:30 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:17:36 GMT+0800">
                 2023-02-09
             </span>
         </span>
@@ -354,8 +357,8 @@
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        数组模拟静态链表
-1234567891011121314151617181920212223242526272829303132#include&lt;iostream&gt;using namespace std;const N = 100010;...
+                        数组模拟静态链表使用数组模拟静态链表速度要显著快于使用结构体。
+1234567891011121314151617181920212223242526272829303132#include&lt;iostream&gt;using namespac...
                     
                 </div>
 
@@ -363,7 +366,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:49:42 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:19:12 GMT+0800">
                 2023-02-09
             </span>
         </span>
@@ -388,9 +391,9 @@
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        高精度大整数存储：使用数组存取大整数，由于在数组的末尾添加值要比在开头添加容易，因此数组的0位一般存取大整数的个位。
+                        高精度大整数存储：使用数组存取大整数，由于在数组的末尾添加值要比在开头添加容易，因此数组的0位一般存取大整数的个位。高精度在很多需要求补位的题目中会遇到。
 高精度加法：
-1234567891011121314151617vector&lt;int&gt; add(vector&lt;in...
+1234567891011121314151617vector&lt;int&g...
                     
                 </div>
 
@@ -398,7 +401,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:49:01 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 01:18:30 GMT+0800">
                 2023-02-09
             </span>
         </span>
