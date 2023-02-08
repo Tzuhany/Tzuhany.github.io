@@ -9,7 +9,7 @@
     
     <title>
         
-            标签: Go |
+            第一篇博客 |
         
         Tzuhan
     </title>
@@ -88,7 +88,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/tags"
                             >
                                 标签
@@ -143,7 +143,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/tags">标签</a>
                 </li>
             
@@ -173,42 +173,232 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="tag-container">
-        <div class="tag-name"><i class="fas fa-tag"></i>&nbsp;Go
-        </div>
-        <div class="tag-post-list">
-            
-<div class="archive-list-container">
-    
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[1]</span>
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">第一篇博客</span>
             </div>
-            <ul class="article-list">
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Tzuhan</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-01-23 19:44:07</span>
+        <span class="mobile">2023-01-23 19:44</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-09 00:47:30</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
                 
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/01/30/Go%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
-                        >Go数据结构</a>
-                        <span class="article-date">01-30</span>
+                    <li>
+                        <a href="/categories/%E6%9D%82%E8%AF%AD/">杂语</a>&nbsp;
                     </li>
                 
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%9D%82%E8%AF%AD/">杂语</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>380 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
-        </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>折腾了许久，终于完成的自己的博客。</p>
+<p>建站之初，计划使用 <strong>React</strong> + <strong>Gin</strong> 进行博客的搭建，但最终还是放弃了，自己的审美实在过于糟糕，况且，写前端的时间足够学习很多东西，手撸一个博客对于一名大三在校生而言有些过于浪费时间了。</p>
+<p>最终选用 <strong>Hexo</strong> 进行博客的搭建，Hexo可以解析 <strong>MarkDown</strong> 文本，生成静态 <strong>HTML</strong> 页面，最最最重要的是，<strong>Hexo</strong> 提供了许多现成的主题，对主题不满意的地方可以直接对 <strong>CSS</strong> 进行修改，在魔改了两天之后，博客网站的样式终于到了我的审美上。</p>
+<p>博客采用 <strong>GitHub Page</strong> 进行部署，每一篇文章的更新相当于用 <strong>GIT</strong> 将代码提交到仓库里，再对仓库的 <strong>Custom domain</strong> 进行设置，把域名添加到上面，这样就可以直接通过域名对博客进行访问了。</p>
+<p>说到域名，还踩了很多坑，在腾讯云进行域名解析时，可以直接把记录类型设置为 <strong>CNAME</strong> 之后对 <strong>ping</strong> 一下仓库的地址，填到记录值上就好了，除此之外要在项目的 <strong>Source</strong> 文件夹下新建一个CNAME 文件，把域名填到里面，不然每次 <strong>commit</strong> 都要在仓库里重新绑定域名，离谱的很！</p>
+<p>搭建博客是为了督促自己多学习，多更新技术文章，希望能做到😢</p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%9D%82%E8%AF%AD/">#杂语</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2023/01/30/%E5%BF%AB%E6%8E%92-%E5%BD%92%E5%B9%B6-%E4%BA%8C%E5%88%86/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">快排-归并-二分</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    
+<div class="comments-container">
+    <div id="comments-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments"></i>&nbsp;评论
+    </div>
+    
+        
+            
+
+    <div class="valine-container">
+        <script data-pjax src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+          function loadValine() {
+
+            const config = {
+              el: '#vcomments',
+              appId: 'lPxOIP1QVgXhErOMQpnwOEph-gzGzoHsz',
+              appKey: 'BjL7rBxfsUysNgHMeCxstzeN',
+              meta: ['nick', 'mail', 'link'],
+              avatar: 'wavatar',
+              enableQQ: true,
+              placeholder: '尽情吐槽把~',
+              lang: 'zh-CN'.toLowerCase()
+            }
+
+            if ('') {
+              config.serverURLs = ''
+            }
+
+            new Valine(config)
+
+            function getAuthor(language) {
+              switch (language) {
+                case 'en':
+                  return 'Author'
+                case 'zh-CN':
+                  return '博主'
+                default:
+                  return 'Master'
+              }
+            }
+
+            // Add "Author" identify
+            const getValineDomTimer = setInterval(() => {
+              const vcards = document.querySelectorAll('#vcomments .vcards .vcard')
+              if (vcards.length > 0) {
+                let author = 'Tzuhan'
+
+                if (author) {
+                  for (let vcard of vcards) {
+                    const vnick_dom = vcard.querySelector('.vhead .vnick')
+                    const vnick = vnick_dom.innerHTML
+                    if (vnick === author) {
+                      vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                    }
+                  }
+                }
+                clearInterval(getValineDomTimer)
+              } else {
+                clearInterval(getValineDomTimer)
+              }
+            }, 2000)
+          }
+
+          if ('true' === 'true') {
+            const loadValineTimeout = setTimeout(() => {
+              loadValine()
+              clearTimeout(loadValineTimeout)
+            }, 1000)
+          } else {
+            window.addEventListener('DOMContentLoaded', loadValine)
+          }
+        </script>
     </div>
 
-    <div class="tag-paginator">
-        <div class="paginator">
-    
 
+
+        
     
 </div>
 
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        
+    </div>
+</div>
+
+            </div>
+        
     </div>
 </div>
 
@@ -256,6 +446,28 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -354,6 +566,14 @@
 
 
 <div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
     
 </div>
 

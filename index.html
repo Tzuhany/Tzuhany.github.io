@@ -242,8 +242,216 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/01/30/2023-1-30Go%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/">
-                        Go基础一
+                    <a href="/2023/02/09/%E5%93%88%E5%B8%8C/">
+                        哈希
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        哈希拉链法对于数x，使用某个质数令x取模后，把余数作为下标存储，发生哈希冲突时，将发生冲突的数像链表一样接到发生冲突的数后面。模拟散列表：
+1234567891011121314151617181920212223242526272829303132...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:49:15 GMT+0800">
+                2023-02-09
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/09/%E5%93%88%E5%B8%8C/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/09/%E5%A0%86/">
+                        堆
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        堆小根堆下标在1开始每一个点都小于等于左右子节点
+
+树的一位数组存储方式：索引为x的节点，左子节点为2x，右子节点为2x+1
+插入一个元素：在树的最后一个元素后插入，然后根据大小向上移动，heap[++size] = x; up(size)
+堆中的最...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:48:32 GMT+0800">
+                2023-02-09
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/09/%E5%A0%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/09/Trie%E6%A0%91-%E5%B9%B6%E6%9F%A5%E9%9B%86/">
+                        Trie树-并查集
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        Trie树用来快速存储和查找字符串集合的数据结构Trie的插入和查询操作
+12345678910111213141516171819202122232425262728/*假设有下标为x的点son[x][]为下标x节点的所有子节点，son[x][0]...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:50:30 GMT+0800">
+                2023-02-09
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/09/Trie%E6%A0%91-%E5%B9%B6%E6%9F%A5%E9%9B%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/09/%E9%93%BE%E8%A1%A8-%E6%A0%88-%E9%98%9F%E5%88%97/">
+                        链表-栈-队列
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        数组模拟静态链表
+1234567891011121314151617181920212223242526272829303132#include&lt;iostream&gt;using namespace std;const N = 100010;...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:49:42 GMT+0800">
+                2023-02-09
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/09/%E9%93%BE%E8%A1%A8-%E6%A0%88-%E9%98%9F%E5%88%97/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/09/%E9%AB%98%E7%B2%BE%E5%BA%A6-%E5%89%8D%E7%BC%80%E5%92%8C-%E5%B7%AE%E5%88%86/">
+                        高精度-前缀和-差分
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        高精度大整数存储：使用数组存取大整数，由于在数组的末尾添加值要比在开头添加容易，因此数组的0位一般存取大整数的个位。
+高精度加法：
+1234567891011121314151617vector&lt;int&gt; add(vector&lt;in...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:49:01 GMT+0800">
+                2023-02-09
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/09/%E9%AB%98%E7%B2%BE%E5%BA%A6-%E5%89%8D%E7%BC%80%E5%92%8C-%E5%B7%AE%E5%88%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/09/%E6%80%82/">
+                        寄！
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        记录今天，给女生要联系方式失败了，我太怂了啊啊啊！！！
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:54:34 GMT+0800">
+                2023-02-09
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/09/%E6%80%82/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/01/30/Go%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        Go数据结构
                     </a>
                 </h3>
 
@@ -260,15 +468,15 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Mon Jan 30 2023 21:39:45 GMT+0800">
-                2023-01-30
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:50:19 GMT+0800">
+                2023-02-09
             </span>
         </span>
         
         
     </div>
 
-    <a class="read-more" href="/2023/01/30/2023-1-30Go%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/01/30/Go%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -278,8 +486,8 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/01/30/2023-1-30%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/">
-                        快排，归并，二分
+                    <a href="/2023/01/30/%E5%BF%AB%E6%8E%92-%E5%BD%92%E5%B9%B6-%E4%BA%8C%E5%88%86/">
+                        快排-归并-二分
                     </a>
                 </h3>
 
@@ -296,15 +504,15 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Mon Jan 30 2023 21:39:23 GMT+0800">
-                2023-01-30
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:49:30 GMT+0800">
+                2023-02-09
             </span>
         </span>
         
         
     </div>
 
-    <a class="read-more" href="/2023/01/30/2023-1-30%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/01/30/%E5%BF%AB%E6%8E%92-%E5%BD%92%E5%B9%B6-%E4%BA%8C%E5%88%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -314,7 +522,7 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/01/23/first-post/">
+                    <a href="/2023/01/23/myFirstPost/">
                         第一篇博客
                     </a>
                 </h3>
@@ -331,15 +539,15 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Mon Jan 23 2023 20:28:39 GMT+0800">
-                2023-01-23
+            <span class="home-article-date" data-updated="Thu Feb 09 2023 00:47:30 GMT+0800">
+                2023-02-09
             </span>
         </span>
         
         
     </div>
 
-    <a class="read-more" href="/2023/01/23/first-post/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/01/23/myFirstPost/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
