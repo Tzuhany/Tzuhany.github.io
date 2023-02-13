@@ -9,7 +9,7 @@
     
     <title>
         
-            失败经历 |
+            C++杂语（一） |
         
         Tzuhan
     </title>
@@ -177,7 +177,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">失败经历</span>
+                <span class="title-hover-animation">C++杂语（一）</span>
             </div>
 
             
@@ -197,13 +197,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-02-10 23:32:02</span>
-        <span class="mobile">2023-02-10 23:32</span>
+        <span class="pc">2023-02-13 19:39:43</span>
+        <span class="mobile">2023-02-13 19:39</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-02-13 19:43:44</span>
+        <span class="pc">2023-02-13 19:44:05</span>
     </span>
     
     
@@ -212,7 +212,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>&nbsp;
+                        <a href="/categories/C-%E6%9D%82%E8%AF%AD/">C++杂语</a>&nbsp;
                     </li>
                 
             </ul>
@@ -224,7 +224,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E6%9D%82%E8%AF%AD/">杂语</a>&nbsp;
+                        <a href="/tags/C/">C++</a>&nbsp;
                     </li>
                 
             </ul>
@@ -234,7 +234,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>241 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>243 字</span>
         </span>
     
     
@@ -257,17 +257,18 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <p>刚去自习室的前几天，就注意到了隔座的女生，不知为何，看到她的第一眼就有种说不出的感觉。<br>纠结了许久，终于在前天女生晚上回家后，在她的桌子上留下了要联系方式的纸条。<br>一晚忐忑后，第二天无事发生，蛮想再争取一下，但想到会打扰到女生，思虑再三还是放弃了。<br>就在今天，终于收到了女生的回复：</p>
-<p><strong>谢谢</strong><br><strong>抱歉</strong><br><strong>也祝你早日上岸</strong></p>
-<p>看到内容后说不上难过，也许女生早有所属，也许现阶段没有认识一个陌生人的经历罢了。<br>萍水相逢，几天后便成了陌生人，难免会有些遗憾。<br>想起上次有这种感觉还是在六年前，不知道下次是什么时候。<br>只希望我的纸条能给女生平淡的备考期带来一丝惊喜吧 ~</p>
-<div align=center><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/微信图片_20230210234717.3d4e9tgzdou0.webp"
-                      alt="回信" style="zoom: 25%;" 
-                ></div>
+                <p>const问题，构造函数初始化成员列表，new关键字</p>
+<span id="more"></span>
 
+<h5 id="const问题"><a href="#const问题" class="headerlink" title="const问题"></a><code>const</code>问题</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以改变a指针的指向，但不可以改变*a原本的值</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* a;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span>* a;</span><br><span class="line"></span><br><span class="line"><span class="comment">//不可以改变a指针的指向，但是可以改变*a原本的值</span></span><br><span class="line"><span class="type">int</span>* <span class="type">const</span> a;</span><br></pre></td></tr></table></figure>
 
+<p>在成员方法中的使用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Entity</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> m_X, M_Y;</span><br><span class="line">	<span class="comment">//在成员方法中使用表示该方法中不会改变成员变量的值</span></span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">GetX</span><span class="params">()</span> <span class="type">const</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> m_X;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="构造函数初始化成员列表"><a href="#构造函数初始化成员列表" class="headerlink" title="构造函数初始化成员列表"></a>构造函数初始化成员列表</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Entity</span> &#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	std :: string m_Namae;</span><br><span class="line">    	<span class="type">int</span> x, y, z;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	<span class="comment">//构造函数</span></span><br><span class="line">    	<span class="built_in">Entity</span>()</span><br><span class="line">            : <span class="built_in">m_Name</span>(<span class="string">&quot;Unknown&quot;</span>), <span class="built_in">x</span>(<span class="number">0</span>), <span class="built_in">y</span>(<span class="number">0</span>), <span class="built_in">z</span>(<span class="number">0</span>)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="new关键字"><a href="#new关键字" class="headerlink" title="new关键字"></a>new关键字</h5><p><code>new</code>关键字的作用是在在堆上分配内存，在堆内存中找到一个足够大的内存块，并返回一个指针。但使用<code>new</code>之后，要记得<code>delete</code>掉<code>new</code>出的内存</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//new关键字的使用</span></span><br><span class="line"><span class="type">int</span>* a = <span class="keyword">new</span> <span class="type">int</span>;</span><br><span class="line"><span class="type">int</span>* b = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">50</span>];</span><br><span class="line">Entity* e = <span class="keyword">new</span> <span class="built_in">Entity</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> a;</span><br><span class="line"><span class="keyword">delete</span>[] b;</span><br><span class="line"><span class="keyword">delete</span> e;</span><br></pre></td></tr></table></figure>
             </div>
 
             
@@ -276,7 +277,7 @@
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/%E6%9D%82%E8%AF%AD/">#杂语</a>&nbsp;
+                            <a href="/tags/C/">#C++</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -285,29 +286,14 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/2023/02/10/01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">01背包问题</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2023/02/09/%E7%95%99%E8%A8%80%E6%9D%BF/"
+                               href="/2023/02/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">留言板</span>
+                                <span class="post-nav-title-item">二叉树路径问题</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -412,7 +398,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#const%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">const问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E6%88%90%E5%91%98%E5%88%97%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">构造函数初始化成员列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#new%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">3.</span> <span class="nav-text">new关键字</span></a></li></ol>
     </div>
 </div>
 
