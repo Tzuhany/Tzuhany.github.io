@@ -203,7 +203,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-02-13 20:33:15</span>
+        <span class="pc">2023-02-13 20:40:19</span>
     </span>
     
     
@@ -234,7 +234,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>261 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>197 字</span>
         </span>
     
     
@@ -257,12 +257,20 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h3 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h3><p>智能指针是帮助程序员管理动态分配资源的工具，主要是为了防止程序员忘记释放堆上的资源导致的内存泄漏，本质是一个类模板，可以动态分配任何类型的资源，在析构函数中在合适的时机释放资源。</p>
-<p>具体分为：</p>
+                <h3 id="main执行前和执行后的代码可能是什么"><a href="#main执行前和执行后的代码可能是什么" class="headerlink" title="main执行前和执行后的代码可能是什么"></a>main执行前和执行后的代码可能是什么</h3><p><strong>main函数执行之前</strong>，主要就是初始化系统相关资源：</p>
 <ul>
-<li><code>unique_ptr</code>：在同一时刻只能有一个指针指向动态分配的资源，内部禁止拷贝和赋值，但有移动构造函数。</li>
-<li><code>shared_ptr</code>：相反的，共享指针就是同一时刻可以有多个指针指向同一个动态分配的资源，内部通过一个引用计数表示该资源被多少个指针指向。当一个共享指针离开作用域，将引用计数减一，引用计数为0才真正释放资源。</li>
-<li><code>weak_point</code>：为了解决共享指针循环引用问题，引入了<code>weak_point</code>，一个弱指针指向一个共享的对象时，不会增加引用计数。</li>
+<li>设置栈指针</li>
+<li>初始化静态<code>static</code>变量和<code>global</code>全局变量，即<code>.data</code>段的内容</li>
+<li>将未初始化部分的全局变量赋初值：数值型<code>short</code>，<code>int</code>，<code>long</code>等为<code>0</code>，<code>bool</code>为<code>FALSE</code>，指针为<code>NULL</code>等等，即<code>.bss</code>段的内容</li>
+<li>全局对象初始化，在<code>main</code>之前调用构造函数，这是可能会执行前的一些代码</li>
+<li>将main函数的参数<code>argc</code>，<code>argv</code>等传递给<code>main</code>函数，然后才真正运行<code>main</code>函数</li>
+<li><code>__attribute__((constructor))</code></li>
+</ul>
+<p><strong>main函数执行之后</strong>：</p>
+<ul>
+<li>全局对象的析构函数会在main函数之后执行；</li>
+<li>可以用 <strong><code>atexit</code></strong> 注册一个函数，它会在main 之后执行;</li>
+<li><code>__attribute__((destructor))</code></li>
 </ul>
 
             </div>
@@ -394,7 +402,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-number">1.</span> <span class="nav-text">智能指针</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#main%E6%89%A7%E8%A1%8C%E5%89%8D%E5%92%8C%E6%89%A7%E8%A1%8C%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%83%BD%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">main执行前和执行后的代码可能是什么</span></a></li></ol>
     </div>
 </div>
 

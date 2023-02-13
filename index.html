@@ -285,10 +285,11 @@
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        智能指针智能指针是帮助程序员管理动态分配资源的工具，主要是为了防止程序员忘记释放堆上的资源导致的内存泄漏，本质是一个类模板，可以动态分配任何类型的资源，在析构函数中在合适的时机释放资源。
-具体分为：
+                        main执行前和执行后的代码可能是什么main函数执行之前，主要就是初始化系统相关资源：
 
-unique_ptr：在同一时刻只能有一个指针指...
+设置栈指针
+初始化静态static变量和global全局变量，即.data段的内容
+将未初始化部分的全局变量赋初值：数值型short，int，long等为0，...
                     
                 </div>
 
@@ -296,7 +297,7 @@ unique_ptr：在同一时刻只能有一个指针指...
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Mon Feb 13 2023 20:33:15 GMT+0800">
+            <span class="home-article-date" data-updated="Mon Feb 13 2023 20:40:19 GMT+0800">
                 2023-02-13
             </span>
         </span>
