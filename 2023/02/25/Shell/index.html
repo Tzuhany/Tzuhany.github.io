@@ -9,7 +9,7 @@
     
     <title>
         
-            八股文（C++语言部分）--持续更新 |
+            Shell |
         
         Tzuhan
     </title>
@@ -177,7 +177,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">八股文（C++语言部分）--持续更新</span>
+                <span class="title-hover-animation">Shell</span>
             </div>
 
             
@@ -197,13 +197,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-02-13 20:23:02</span>
-        <span class="mobile">2023-02-13 20:23</span>
+        <span class="pc">2023-02-25 09:32:23</span>
+        <span class="mobile">2023-02-25 09:32</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-02-13 20:43:55</span>
+        <span class="pc">2023-02-25 09:33:19</span>
     </span>
     
     
@@ -212,7 +212,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E9%9D%A2%E8%AF%95%E9%9B%86%E9%94%A6/">面试集锦</a>&nbsp;
+                        <a href="/categories/Linux/">Linux</a>&nbsp;
                     </li>
                 
             </ul>
@@ -224,7 +224,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/">八股文</a>&nbsp;
+                        <a href="/tags/Linux/">Linux</a>&nbsp;
                     </li>
                 
             </ul>
@@ -234,7 +234,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>197 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>242 字</span>
         </span>
     
     
@@ -257,21 +257,34 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h3 id="main执行前和执行后的代码可能是什么"><a href="#main执行前和执行后的代码可能是什么" class="headerlink" title="main执行前和执行后的代码可能是什么"></a>main执行前和执行后的代码可能是什么</h3><p><strong>main函数执行之前</strong>，主要就是初始化系统相关资源：</p>
-<ul>
-<li>设置栈指针</li>
-<li>初始化静态<code>static</code>变量和<code>global</code>全局变量，即<code>.data</code>段的内容</li>
-<li>将未初始化部分的全局变量赋初值：数值型<code>short</code>，<code>int</code>，<code>long</code>等为<code>0</code>，<code>bool</code>为<code>FALSE</code>，指针为<code>NULL</code>等等，即<code>.bss</code>段的内容</li>
-<li>全局对象初始化，在<code>main</code>之前调用构造函数，这是可能会执行前的一些代码</li>
-<li>将main函数的参数<code>argc</code>，<code>argv</code>等传递给<code>main</code>函数，然后才真正运行<code>main</code>函数</li>
-<li><code>__attribute__((constructor))</code></li>
-</ul>
-<p><strong>main函数执行之后</strong>：</p>
-<ul>
-<li>全局对象的析构函数会在main函数之后执行；</li>
-<li>可以用 <strong><code>atexit</code></strong> 注册一个函数，它会在main 之后执行;</li>
-<li><code>__attribute__((destructor))</code></li>
-</ul>
+                <p>循环， 函数， 文件重定向</p>
+<span id="more"></span>
+
+<p><strong>循环</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">for var in val1 val2 val3</span><br><span class="line">do</span><br><span class="line"><span class="meta prompt_">	#</span><span class="language-bash">语句一</span></span><br><span class="line"><span class="meta prompt_">	#</span><span class="language-bash">语句二</span></span><br><span class="line">done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">例子</span></span><br><span class="line">for file in `ls`</span><br><span class="line">do</span><br><span class="line">	echo $file</span><br><span class="line">done</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">会输出所有文件的名称</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for((i=1; i&lt;=10; i++))</span><br><span class="line">do</span><br><span class="line">	echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while read file</span><br><span class="line">do</span><br><span class="line">	echo $name</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">until condition</span><br><span class="line">do</span><br><span class="line"><span class="meta prompt_">	#</span><span class="language-bash">语句一</span></span><br><span class="line"><span class="meta prompt_">	#</span><span class="language-bash">语句二</span></span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">输出1 - 10内的所有奇数</span></span><br><span class="line">for((i=1; i&lt;=10;i++))</span><br><span class="line">do</span><br><span class="line">	if [`expr $i % 2` -eq 0]</span><br><span class="line">	then</span><br><span class="line">		continue</span><br><span class="line">	fi</span><br><span class="line">	echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>函数</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">func()&#123;</span><br><span class="line">	name=yzh</span><br><span class="line">	echo $name</span><br><span class="line">	</span><br><span class="line">	return 123</span><br><span class="line">&#125;</span><br><span class="line">output=$(func)</span><br><span class="line">ret=$?</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">传递参数时，<span class="variable">$0</span>代表文件名，<span class="variable">$1</span>代表第一个参数，以此类推</span></span><br><span class="line">func()&#123;</span><br><span class="line">	num1=$1</span><br><span class="line">	num2=$2</span><br><span class="line">	echo $num1</span><br><span class="line">	echo $num2</span><br><span class="line">&#125;</span><br><span class="line">func 1 2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>文件重定向</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">command &gt; file #将stdout重定向到file中</span><br><span class="line">command &lt; file #将stdin重定向到file中</span><br><span class="line">command &gt;&gt; file #将stdout以追加的方式重定向到file中</span><br><span class="line">command n &gt; file #将文件描述符n重定向到file中</span><br><span class="line">command n &gt;&gt; file #将文件描述符n以追加方式重定向到file中</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;Hello&quot; &gt; output.txt</span><br><span class="line">echo &quot;World&quot; &gt;&gt; output.txt</span><br><span class="line">read str &lt; output.txt</span><br></pre></td></tr></table></figure>
+
+
+
 
             </div>
 
@@ -281,7 +294,7 @@
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/">#八股文</a>&nbsp;
+                            <a href="/tags/Linux/">#Linux</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -290,29 +303,14 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/2023/02/20/%E5%9B%9E%E6%BA%AF/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">回溯</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2023/02/13/C-%E6%9D%82%E8%AF%AD%EF%BC%88%E4%B8%80%EF%BC%89/"
+                               href="/2023/02/20/%E5%9B%9E%E6%BA%AF/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">C++杂语（一）</span>
+                                <span class="post-nav-title-item">回溯</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -417,7 +415,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#main%E6%89%A7%E8%A1%8C%E5%89%8D%E5%92%8C%E6%89%A7%E8%A1%8C%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%83%BD%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">main执行前和执行后的代码可能是什么</span></a></li></ol>
+        
     </div>
 </div>
 
