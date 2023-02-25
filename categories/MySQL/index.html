@@ -9,7 +9,7 @@
     
     <title>
         
-            八股文（C++语言部分）--持续更新 |
+            分类: MySQL |
         
         Tzuhan
     </title>
@@ -96,7 +96,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class=""
+                            <a class="active"
                                href="/categories"
                             >
                                 分类
@@ -148,7 +148,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class=""
+                    <a class="active"
                        href="/categories">分类</a>
                 </li>
             
@@ -173,256 +173,42 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="post-page-container">
-        <div class="article-content-container">
-
-            <div class="article-title">
-                <span class="title-hover-animation">八股文（C++语言部分）--持续更新</span>
-            </div>
-
-            
-                <div class="article-header">
-                    <div class="avatar">
-                        <img src="https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp">
-                    </div>
-                    <div class="info">
-                        <div class="author">
-                            <span class="name">Tzuhan</span>
-                            
-                        </div>
-                        <div class="meta-info">
-                            
-<div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        
-            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
-        
-        <span class="pc">2023-02-13 20:23:02</span>
-        <span class="mobile">2023-02-13 20:23</span>
-    </span>
-    
-        <span class="article-update-date article-meta-item">
-        <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-02-13 20:43:55</span>
-    </span>
-    
-    
-        <span class="article-categories article-meta-item">
-            <i class="fas fa-folder"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E9%9D%A2%E8%AF%95%E9%9B%86%E9%94%A6/">面试集锦</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/">八股文</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-
-    
-    
-        <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>197 字</span>
-        </span>
-    
-    
-        <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
-        </span>
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
-
-                        </div>
-                    </div>
-                </div>
-            
-
-            <div class="article-content keep-markdown-body">
-                
-
-                <h3 id="main执行前和执行后的代码可能是什么"><a href="#main执行前和执行后的代码可能是什么" class="headerlink" title="main执行前和执行后的代码可能是什么"></a>main执行前和执行后的代码可能是什么</h3><p><strong>main函数执行之前</strong>，主要就是初始化系统相关资源：</p>
-<ul>
-<li>设置栈指针</li>
-<li>初始化静态<code>static</code>变量和<code>global</code>全局变量，即<code>.data</code>段的内容</li>
-<li>将未初始化部分的全局变量赋初值：数值型<code>short</code>，<code>int</code>，<code>long</code>等为<code>0</code>，<code>bool</code>为<code>FALSE</code>，指针为<code>NULL</code>等等，即<code>.bss</code>段的内容</li>
-<li>全局对象初始化，在<code>main</code>之前调用构造函数，这是可能会执行前的一些代码</li>
-<li>将main函数的参数<code>argc</code>，<code>argv</code>等传递给<code>main</code>函数，然后才真正运行<code>main</code>函数</li>
-<li><code>__attribute__((constructor))</code></li>
-</ul>
-<p><strong>main函数执行之后</strong>：</p>
-<ul>
-<li>全局对象的析构函数会在main函数之后执行；</li>
-<li>可以用 <strong><code>atexit</code></strong> 注册一个函数，它会在main 之后执行;</li>
-<li><code>__attribute__((destructor))</code></li>
-</ul>
-
-            </div>
-
-            
-
-            
-                <ul class="post-tags-box">
-                    
-                        <li class="tag-item">
-                            <a href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/">#八股文</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            
-
-            
-                <div class="article-nav">
-                    
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/2023/02/20/%E5%9B%9E%E6%BA%AF/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">回溯</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                            </a>
-                        </div>
-                    
-                    
-                        <div class="article-next">
-                            <a class="next"
-                               rel="next"
-                               href="/2023/02/13/C-%E6%9D%82%E8%AF%AD%EF%BC%88%E4%B8%80%EF%BC%89/"
-                            >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">C++杂语（一）</span>
-                                <span class="post-nav-item">下一篇</span>
-                            </span>
-                                <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                            </a>
-                        </div>
-                    
-                </div>
-            
-
-            
-                <div class="comment-container">
-                    
-<div class="comments-container">
-    <div id="comments-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fas fa-comments"></i>&nbsp;评论
-    </div>
-    
-        
-            
-
-    <div class="valine-container">
-        <script data-pjax src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
-        <div id="vcomments"></div>
-        <script data-pjax>
-          function loadValine() {
-
-            const config = {
-              el: '#vcomments',
-              appId: 'lPxOIP1QVgXhErOMQpnwOEph-gzGzoHsz',
-              appKey: 'BjL7rBxfsUysNgHMeCxstzeN',
-              meta: ['nick', 'mail', 'link'],
-              avatar: 'wavatar',
-              enableQQ: true,
-              placeholder: '尽情吐槽把~',
-              lang: 'zh-CN'.toLowerCase()
-            }
-
-            if ('') {
-              config.serverURLs = ''
-            }
-
-            new Valine(config)
-
-            function getAuthor(language) {
-              switch (language) {
-                case 'en':
-                  return 'Author'
-                case 'zh-CN':
-                  return '博主'
-                default:
-                  return 'Master'
-              }
-            }
-
-            // Add "Author" identify
-            const getValineDomTimer = setInterval(() => {
-              const vcards = document.querySelectorAll('#vcomments .vcards .vcard')
-              if (vcards.length > 0) {
-                let author = 'Tzuhan'
-
-                if (author) {
-                  for (let vcard of vcards) {
-                    const vnick_dom = vcard.querySelector('.vhead .vnick')
-                    const vnick = vnick_dom.innerHTML
-                    if (vnick === author) {
-                      vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
-                    }
-                  }
-                }
-                clearInterval(getValineDomTimer)
-              } else {
-                clearInterval(getValineDomTimer)
-              }
-            }, 2000)
-          }
-
-          if ('true' === 'true') {
-            const loadValineTimeout = setTimeout(() => {
-              loadValine()
-              clearTimeout(loadValineTimeout)
-            }, 1000)
-          } else {
-            window.addEventListener('DOMContentLoaded', loadValine)
-          }
-        </script>
-    </div>
-
-
-
-        
-    
-</div>
-
-                </div>
-            
+    <div class="category-container">
+        <div class="category-name">
+            <i class="fas fa-folder"></i>&nbsp;MySQL
         </div>
-
-        
-            <div class="toc-content-container">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#main%E6%89%A7%E8%A1%8C%E5%89%8D%E5%92%8C%E6%89%A7%E8%A1%8C%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%83%BD%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">main执行前和执行后的代码可能是什么</span></a></li></ol>
-    </div>
+        <div class="category-post-list">
+            
+<div class="archive-list-container">
+    
+        <section class="archive-item">
+            <div class="archive-item-header">
+                <span class="archive-year">2023</span>
+                <span class="archive-year-post-count">[1]</span>
+            </div>
+            <ul class="article-list">
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2023/02/25/MySQL%E5%9F%BA%E7%A1%80/"
+                        >MySQL基础</a>
+                        <span class="article-date">02-25</span>
+                    </li>
+                
+            </ul>
+        </section>
+    
 </div>
 
-            </div>
-        
+        </div>
+    </div>
+    <div class="category-paginator">
+        <div class="paginator">
+    
+
+    
+</div>
+
     </div>
 </div>
 
@@ -470,28 +256,6 @@
         </div>
     </div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item flex-center toggle-show-toc">
-                <i class="fas fa-list"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-            <li class="tools-item flex-center go-to-comments">
-                <i class="fas fa-comment"></i>
-                <span class="post-comments-count"></span>
-            </li>
-        
-    </ul>
-</div>
-
-        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -590,14 +354,6 @@
 
 
 <div class="post-scripts pjax">
-    
-        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
-        
-            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
-        
-        
-            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
-        
     
 </div>
 

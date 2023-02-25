@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Tzuhan">
+    
+    <title>
+        
+            MySQL基础 |
+        
+        Tzuhan
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp","favicon":"https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp","avatar":"https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp","font_size":null,"font_family":"STKaiti","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"日子匆匆穿我而行.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"valine","valine":{"appid":"lPxOIP1QVgXhErOMQpnwOEph-gzGzoHsz","appkey":"BjL7rBxfsUysNgHMeCxstzeN","server_urls":null,"placeholder":"尽情吐槽把~"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Tzuhan
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">MySQL基础</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://cdn.staticaly.com/gh/Tzuhany/Blog-Image@master/image/logo.p4i8unwx6rk.webp">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Tzuhan</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-02-25 23:31:03</span>
+        <span class="mobile">2023-02-25 23:31</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-25 23:31:44</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/MySQL/">MySQL</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/MySQL%E5%9F%BA%E7%A1%80/">MySQL基础</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.8k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>使用DISTINCT关键字，指示MySQL 列中只返回不同的值</p>
+<span id="more"></span>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">DISTINCT</span> vend_id <span class="keyword">from</span> products</span><br></pre></td></tr></table></figure>
+
+<p>使用LIMIT限制返回结果</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 限制输出结果只有五行</span></span><br><span class="line"><span class="keyword">select</span> prod_name <span class="keyword">from</span> products LIMIT <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 返回从行5开始的5行</span></span><br><span class="line"><span class="keyword">select</span> prod_name <span class="keyword">from</span> products LIMIT <span class="number">5</span>,<span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>IS NULL空值过滤</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_price <span class="keyword">IS</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
+
+<p>LIKE通配符</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 筛选以jet开头的数据</span></span><br><span class="line"><span class="keyword">select</span> prod_id, prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_name <span class="keyword">LIKE</span> <span class="string">&#x27;jet%&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 筛选所有包含jet的数据</span></span><br><span class="line"><span class="keyword">select</span> prod_id, prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_name <span class="keyword">LIKE</span> <span class="string">&#x27;%jet%&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 筛选以s开头，e结尾的数据</span></span><br><span class="line"><span class="keyword">select</span> prod_id, prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_name <span class="keyword">LIKE</span> <span class="string">&#x27;s%e&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>下划线<code>_</code>通配符</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 下划线通配符只匹配单个字符</span></span><br><span class="line"><span class="keyword">select</span> prod_id, prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_name <span class="keyword">LIKE</span> <span class="string">&#x27;_tom anvi1&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="正则表达式搜索"><a href="#正则表达式搜索" class="headerlink" title="正则表达式搜索"></a><strong>正则表达式搜索</strong></h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 匹配1000， 2000 ……</span></span><br><span class="line"><span class="keyword">select</span> prod_id, prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_name REGEXP <span class="string">&#x27;.000&#x27;</span></span><br><span class="line"><span class="keyword">select</span> prod_id, prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_name REGEXP <span class="string">&#x27;1000|2000&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 匹配1 ton， 2ton， 3ton</span></span><br><span class="line"><span class="keyword">select</span> prod_id, prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_name REGEXP <span class="string">&#x27;[1-3] ton&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 匹配特殊字符. - 等</span></span><br><span class="line"><span class="keyword">select</span> prod_id, prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_name REGEXP <span class="string">&#x27;\\.&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 匹配连在一起的4个数字</span></span><br><span class="line"><span class="keyword">select</span> prod_id, prod_name <span class="keyword">from</span> products <span class="keyword">where</span> prod_name REGEXP [[:digit:]]&#123;<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>拼接字段</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 输出 杨子涵（男）</span></span><br><span class="line"><span class="keyword">select</span> concat(name, <span class="string">&#x27;(&#x27;</span>, sex, <span class="string">&#x27;)&#x27;</span>) <span class="keyword">from</span> infos</span><br></pre></td></tr></table></figure>
+
+<p>去除空格</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> RTrim(name) <span class="keyword">from</span> infos</span><br></pre></td></tr></table></figure>
+
+<p>使用别名AS</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> concat(name, <span class="string">&#x27;(&#x27;</span>, sex, <span class="string">&#x27;)&#x27;</span>) <span class="keyword">as</span> basic_info <span class="keyword">from</span> infos</span><br></pre></td></tr></table></figure>
+
+<h5 id="分组"><a href="#分组" class="headerlink" title="分组"></a><strong>分组</strong></h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 统计每个id有多少个</span></span><br><span class="line"><span class="keyword">select</span> id, <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> products <span class="keyword">group</span> <span class="keyword">by</span> id</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 要列出至少有两个订单的所有顾客，由于where指定的是行，而having指定的是分组，因此要使用having</span></span><br><span class="line"><span class="keyword">select</span> cust_id, <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> numorder <span class="keyword">from</span> orders <span class="keyword">group</span> <span class="keyword">by</span> cust_id <span class="keyword">having</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="operator">&gt;=</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 列出具有2个（含）以上、价格为10（含）以上的产品的供应商</span></span><br><span class="line"><span class="keyword">select</span> vend_id, <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> num_prods</span><br><span class="line"><span class="keyword">from</span> products</span><br><span class="line"><span class="keyword">where</span> prod_price <span class="operator">&gt;=</span> <span class="number">10</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> vent_id</span><br><span class="line"><span class="keyword">having</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="operator">&gt;=</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a><strong>子查询</strong></h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 列出订购物品TNT2的所有客户</span></span><br><span class="line"><span class="comment">-- 不使用子查询</span></span><br><span class="line"><span class="comment">-- 1)</span></span><br><span class="line"><span class="keyword">select</span> order_num <span class="keyword">from</span> orderitems <span class="keyword">where</span> prod_id <span class="operator">=</span> <span class="string">&#x27;TNT2&#x27;</span></span><br><span class="line"><span class="comment">-- 2)</span></span><br><span class="line"><span class="keyword">select</span> cust_id <span class="keyword">from</span> orders <span class="keyword">where</span> order_num <span class="keyword">in</span>(<span class="number">20005</span>, <span class="number">20007</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用子查询</span></span><br><span class="line"><span class="keyword">select</span> cust_id <span class="keyword">from</span> orders <span class="keyword">where</span> order_num <span class="keyword">in</span>(</span><br><span class="line"><span class="keyword">select</span> order_num <span class="keyword">from</span> orderitems <span class="keyword">where</span> prod_id <span class="operator">=</span> <span class="string">&#x27;TNT2&#x27;</span></span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="连结表"><a href="#连结表" class="headerlink" title="连结表"></a><strong>连结表</strong></h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 内联结</span></span><br><span class="line"><span class="keyword">select</span> vend_name, prod_name, prod_price</span><br><span class="line"><span class="keyword">from</span> vendors <span class="keyword">inner</span> <span class="keyword">join</span> products</span><br><span class="line"><span class="keyword">on</span> vendors.vend_id <span class="operator">=</span> products.vend_id</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 自联结</span></span><br><span class="line"><span class="comment">-- 使用AS在SQL中多次使用相同表</span></span><br><span class="line"><span class="keyword">select</span> p1.prod_id, p1.prod_name</span><br><span class="line"><span class="keyword">from</span> products <span class="keyword">as</span> p1, products <span class="keyword">as</span> p2</span><br><span class="line"><span class="keyword">where</span> p1.vend_id <span class="operator">=</span> p2.vend_id</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 外联结</span></span><br><span class="line"><span class="comment">-- right表示选择右边表的所有行</span></span><br><span class="line"><span class="keyword">select</span> vend_name, prod_name, prod_price</span><br><span class="line"><span class="keyword">from</span> vendors <span class="keyword">right</span> <span class="keyword">outer</span> <span class="keyword">join</span> products</span><br><span class="line"><span class="keyword">on</span> vendors.vend_id <span class="operator">=</span> products.vend_id</span><br></pre></td></tr></table></figure>
+
+<p><strong>组合查询</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 使用UNION组合多个查询</span></span><br><span class="line"><span class="keyword">select</span> vend_id, prod_id, prod_price</span><br><span class="line"><span class="keyword">from</span> products</span><br><span class="line"><span class="keyword">where</span> prod_price <span class="operator">&lt;=</span> <span class="number">5</span></span><br><span class="line"><span class="comment">-- union会自动删除重复的行，如果取消，使用union all</span></span><br><span class="line"><span class="keyword">union</span> (<span class="keyword">union</span> <span class="keyword">all</span>)</span><br><span class="line"><span class="keyword">select</span> vend_id, prod_id, prod_price</span><br><span class="line"><span class="keyword">from</span> products</span><br><span class="line"><span class="keyword">where</span> vend_id <span class="keyword">in</span> (<span class="number">1001</span>, <span class="number">1002</span>)</span><br><span class="line"><span class="comment">-- 最后使用排序，会对整个结果都排序</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> vend_id, prod_price</span><br></pre></td></tr></table></figure>
+
+<h5 id="全文搜索"><a href="#全文搜索" class="headerlink" title="全文搜索"></a><strong>全文搜索</strong></h5><p>创建表时，启用全文搜索</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> productnotes(</span><br><span class="line">	note_id		<span class="type">int</span>			<span class="keyword">not</span> <span class="keyword">null</span> auto_increment,</span><br><span class="line">    prod_id 	<span class="type">char</span>(<span class="number">10</span>)	<span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    note_date 	datetime	<span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    note_text	text		<span class="keyword">null</span>,</span><br><span class="line">    <span class="keyword">primary</span> key(note_id),</span><br><span class="line">    fulltext(note_text)</span><br><span class="line">)engine<span class="operator">=</span>myisam</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 检索出包含rabbit的记录</span></span><br><span class="line"><span class="keyword">select</span> note_text</span><br><span class="line"><span class="keyword">from</span> productnotes</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">match</span>(note_text) against(<span class="string">&#x27;rabbit&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 布尔文本搜索</span></span><br><span class="line"><span class="comment">-- 不包含rabbit的记录</span></span><br><span class="line"><span class="keyword">select</span> note_text</span><br><span class="line"><span class="keyword">from</span> productnotes</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">match</span>(note_text) against(<span class="string">&#x27;rabbit&#x27;</span>, <span class="keyword">IN</span> <span class="type">BOOLEAN</span> MODE)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 包含rabbit。但不包含haven的记录</span></span><br><span class="line"><span class="keyword">select</span> note_text</span><br><span class="line"><span class="keyword">from</span> productnotes</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">match</span>(note_text) against(<span class="string">&#x27;rabbit -rope*&#x27;</span>, <span class="keyword">IN</span> <span class="type">BOOLEAN</span> MODE)</span><br></pre></td></tr></table></figure>
+
+<h5 id="插入检索出的数据"><a href="#插入检索出的数据" class="headerlink" title="插入检索出的数据"></a><strong>插入检索出的数据</strong></h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> customers(</span><br><span class="line">	id,</span><br><span class="line">    phone,</span><br><span class="line">    email</span><br><span class="line">)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">id,</span><br><span class="line">phone,</span><br><span class="line">email</span><br><span class="line"><span class="keyword">from</span> infos</span><br></pre></td></tr></table></figure>
+
+<h5 id="更新表"><a href="#更新表" class="headerlink" title="更新表"></a><strong>更新表</strong></h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> vendors <span class="keyword">add</span> vend_phone <span class="type">char</span>(<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> vendors <span class="keyword">drop</span> <span class="keyword">column</span> vend_phone</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> orders <span class="keyword">add</span> <span class="keyword">constraint</span> products_vendors <span class="keyword">foreign</span> key (vend_id) <span class="keyword">references</span> vendors (vend_id)</span><br></pre></td></tr></table></figure>
+
+<h5 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a><strong>存储过程</strong></h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建存储过程</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> productpricing()</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">select</span> <span class="built_in">avg</span>(prod_price) <span class="keyword">as</span> priceaverge</span><br><span class="line">	<span class="keyword">from</span> products;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 调用存储过程</span></span><br><span class="line"><span class="keyword">call</span> productpricing()</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除存储过程</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">procedure</span> productpricing if <span class="keyword">exists</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 传递变量</span></span><br><span class="line"><span class="comment">-- MySQL支持IN（传递给存储过程）、OUT（从存储过程传出，如这里所用）和INOUT（对存储过程传入和传出）类型的参数。</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> productpricing(</span><br><span class="line">	<span class="keyword">out</span> p1 <span class="type">decimal</span>(<span class="number">8</span>, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">out</span> ph <span class="type">decimal</span>(<span class="number">8</span>, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">out</span> pa <span class="type">decimal</span>(<span class="number">8</span>, <span class="number">2</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">select</span> <span class="built_in">min</span>(prod_price)</span><br><span class="line">	<span class="keyword">into</span> p1</span><br><span class="line">	<span class="keyword">from</span> products;</span><br><span class="line">	<span class="keyword">select</span> <span class="built_in">max</span>(prod_price)</span><br><span class="line">	<span class="keyword">into</span> ph</span><br><span class="line">	<span class="keyword">from</span> products;</span><br><span class="line">	<span class="keyword">select</span> <span class="built_in">avg</span>(prod_price)</span><br><span class="line">	<span class="keyword">into</span> pa</span><br><span class="line">	<span class="keyword">from</span> products;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> productpricing(</span><br><span class="line">	<span class="variable">@pricelow</span></span><br><span class="line">    <span class="variable">@pricehigh</span></span><br><span class="line">    <span class="variable">@priceaverage</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="variable">@pricelow</span>, <span class="variable">@pricehigh</span>, <span class="variable">@priceaverage</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用传入示例</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> productpricing(</span><br><span class="line">	<span class="keyword">in</span> onumber <span class="type">int</span>,</span><br><span class="line">    <span class="keyword">out</span> ototal <span class="type">decimal</span>(<span class="number">8</span>, <span class="number">2</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">select</span> <span class="built_in">sum</span>(item_price <span class="operator">*</span> quantity)</span><br><span class="line">	<span class="keyword">from</span> orderitems</span><br><span class="line">	<span class="keyword">where</span> order_num <span class="operator">=</span> onumber</span><br><span class="line">	<span class="keyword">into</span> total</span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> productpricing(</span><br><span class="line">	<span class="number">200005</span>,</span><br><span class="line">    <span class="variable">@total</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="variable">@total</span></span><br></pre></td></tr></table></figure>
+
+<p>完成存储过程示例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> ordertotal(</span><br><span class="line">	<span class="keyword">in</span> onumber <span class="type">int</span>,</span><br><span class="line">    <span class="keyword">in</span> taxable boolen,</span><br><span class="line">    <span class="keyword">out</span> ototal <span class="type">decimal</span>(<span class="number">8</span>, <span class="number">2</span>)</span><br><span class="line">)comment <span class="string">&#x27;obtain order total, optionally adding tax&#x27;</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">declare</span> total <span class="type">decimal</span>(<span class="number">8</span>, <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">declare</span> tax <span class="type">int</span> <span class="keyword">default</span> <span class="number">6</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">select</span> <span class="built_in">sum</span>(item_price <span class="operator">*</span> quantity)</span><br><span class="line">	<span class="keyword">from</span> orderitems</span><br><span class="line">	<span class="keyword">where</span> order_num <span class="operator">=</span> onumber</span><br><span class="line">	<span class="keyword">into</span> total;</span><br><span class="line">	</span><br><span class="line">	if taxable <span class="keyword">then</span></span><br><span class="line">		<span class="keyword">select</span> total <span class="operator">+</span> (total <span class="operator">/</span> <span class="number">100</span> <span class="operator">*</span> taxrate) <span class="keyword">into</span> total;</span><br><span class="line">	<span class="keyword">end</span> if;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">select</span> total <span class="keyword">into</span> ototal</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> ordertotal(<span class="number">20005</span>, <span class="number">0</span>, <span class="variable">@total</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="variable">@total</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 检查存储过程</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">procedure</span> ordertotal;</span><br></pre></td></tr></table></figure>
+
+<h5 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h5><p>MySQL检索操作返回一组称为结果集的行。这组返 回的行都是与SQL语句相匹配的行（零行或多行）。使用简单的SELECT语 句，例如，没有办法得到第一行、下一行或前10行，也不存在每次一行 地处理所有行的简单方法（相对于成批地处理它们）。 有时，需要在检索出来的行中前进或后退一行或多行。这就是使用 游标的原因。游标（cursor）是一个存储在MySQL服务器上的数据库查询， 它不是一条SELECT语句，而是被该语句检索出来的结果集。在存储了游 标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 此时ordernumbers存游标存储了select的结果集，可根据需要打开游标逐行滑动数据</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> processorders()</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">declare</span> o <span class="type">int</span>; </span><br><span class="line">	<span class="keyword">declare</span> ordernumbers <span class="keyword">cursor</span></span><br><span class="line">	<span class="keyword">for</span></span><br><span class="line">	<span class="keyword">select</span> order_num <span class="keyword">from</span> orders;</span><br><span class="line">	</span><br><span class="line"><span class="comment">-- 游标执行完之后将done设置为1</span></span><br><span class="line">	<span class="keyword">declare</span> continue handler <span class="keyword">for</span> <span class="keyword">not</span> found <span class="keyword">set</span> done <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">open</span> ordernumbers;</span><br><span class="line">	repeat</span><br><span class="line">		<span class="keyword">fetch</span> ordernumbers <span class="keyword">into</span> o;</span><br><span class="line">	until done <span class="keyword">end</span> repeat;</span><br><span class="line">	<span class="keyword">close</span> ordernumbers;</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> processorders()</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">declare</span> done <span class="type">boolean</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">declare</span> o <span class="type">int</span>;</span><br><span class="line">	<span class="keyword">declare</span> t <span class="type">decimal</span>(<span class="number">8</span>, <span class="number">2</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">declare</span> ordernumbers <span class="keyword">cursor</span>;</span><br><span class="line">	<span class="keyword">declare</span> continue handler <span class="keyword">for</span> <span class="keyword">not</span> found <span class="keyword">set</span> done <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">create</span> <span class="keyword">table</span> if <span class="keyword">not</span> <span class="keyword">exists</span> ordertotals(</span><br><span class="line">    	order_num <span class="type">int</span>,</span><br><span class="line">        total <span class="type">decimal</span>(<span class="number">8</span>, <span class="number">2</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">open</span> ordernumbers;</span><br><span class="line">    </span><br><span class="line">    repeat</span><br><span class="line">    	<span class="keyword">fetch</span> ordernumbers <span class="keyword">into</span> o;</span><br><span class="line">    	<span class="keyword">call</span> ordertotal(<span class="number">0</span>, <span class="number">1</span>, t);</span><br><span class="line">    	<span class="keyword">insert</span> <span class="keyword">into</span> ordertotals(order_num, total) <span class="keyword">values</span>(<span class="number">0</span>, t);</span><br><span class="line">    until done <span class="keyword">end</span> repeat;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">close</span> ordernumbers;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<h5 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h5><p>想要某些语句在事件发生时自动执行，使用触发器</p>
+<p>每个表的每个事件每次只允许一个触发器</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 在进行每一行插入时执行</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> newproduct after <span class="keyword">insert</span> <span class="keyword">on</span> products</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span> <span class="keyword">select</span> <span class="string">&#x27;product added&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除触发器</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">trigger</span> newproduct;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 在 INSERT 型触发器中，NEW 用来表示将要（BEFORE）或已经（AFTER）插入的新数据；</span></span><br><span class="line"><span class="comment">-- 在 UPDATE 型触发器中，OLD 用来表示将要或已经被修改的原数据，NEW 用来表示将要或已经修改为的新数据；</span></span><br><span class="line"><span class="comment">-- 在 DELETE 型触发器中，OLD 用来表示将要或已经被删除的原数据；</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 返回插入新值的order_num</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> newproduct after <span class="keyword">insert</span> <span class="keyword">on</span> products</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span> <span class="keyword">select</span> new.order_num</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用OLD保存将要被删除的行到一个存档表中</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> deleteorder before <span class="keyword">delete</span> <span class="keyword">on</span> orders</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">insert</span> <span class="keyword">into</span> archive_orders(order_num, order_date, cust_id)</span><br><span class="line">	<span class="keyword">values</span>(old.order_num, old.order_date, old.cust_id);</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 下面的例子保证州名缩写总是大写</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> deleteorder before <span class="keyword">update</span> <span class="keyword">on</span> vendors</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span> <span class="keyword">set</span> new.vend_state <span class="operator">=</span> <span class="built_in">upper</span>(new.vend_state);</span><br></pre></td></tr></table></figure>
+
+<h5 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h5><p>为了防止执行一段<code>sql</code>操作时，某一个sql语句出现错误，所以要使用事务来防止出错</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1-回退</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> ordertotals;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 开启一个事务</span></span><br><span class="line"><span class="keyword">start</span> transaction;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除ordertotals中的所有内容</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> ordertotals;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 此时ordertotals表为空</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> ordertotals;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 回退start transaction之后的所有操作</span></span><br><span class="line"><span class="keyword">rollback</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 此时ordertotals表不为空</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> ordertotals;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2-提交</span></span><br><span class="line"><span class="keyword">start</span> transaction;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> ordertotals <span class="keyword">where</span> order_num <span class="operator">=</span> <span class="number">20010</span>;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> orders <span class="keyword">where</span> order_num <span class="operator">=</span> <span class="number">20010</span>;</span><br><span class="line"><span class="comment">-- 提交，此时如果上面的某条delete语句出错，则两条delete语句都不会执行</span></span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3-保留点，在某个步骤出错时，不用全部回退，只回退到出错点</span></span><br><span class="line"><span class="keyword">start</span> transaction;</span><br><span class="line"><span class="keyword">savepoint</span> delete1;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> ordertotals <span class="keyword">where</span> order_num <span class="operator">=</span> <span class="number">20010</span>;</span><br><span class="line"><span class="keyword">savepoint</span> delete2;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> orders <span class="keyword">where</span> order_num <span class="operator">=</span> <span class="number">20010</span>;</span><br><span class="line"><span class="keyword">rollback</span> delete1;</span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/MySQL%E5%9F%BA%E7%A1%80/">#MySQL基础</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/02/25/Shell/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Shell</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    
+<div class="comments-container">
+    <div id="comments-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments"></i>&nbsp;评论
+    </div>
+    
+        
+            
+
+    <div class="valine-container">
+        <script data-pjax src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+          function loadValine() {
+
+            const config = {
+              el: '#vcomments',
+              appId: 'lPxOIP1QVgXhErOMQpnwOEph-gzGzoHsz',
+              appKey: 'BjL7rBxfsUysNgHMeCxstzeN',
+              meta: ['nick', 'mail', 'link'],
+              avatar: 'wavatar',
+              enableQQ: true,
+              placeholder: '尽情吐槽把~',
+              lang: 'zh-CN'.toLowerCase()
+            }
+
+            if ('') {
+              config.serverURLs = ''
+            }
+
+            new Valine(config)
+
+            function getAuthor(language) {
+              switch (language) {
+                case 'en':
+                  return 'Author'
+                case 'zh-CN':
+                  return '博主'
+                default:
+                  return 'Master'
+              }
+            }
+
+            // Add "Author" identify
+            const getValineDomTimer = setInterval(() => {
+              const vcards = document.querySelectorAll('#vcomments .vcards .vcard')
+              if (vcards.length > 0) {
+                let author = 'Tzuhan'
+
+                if (author) {
+                  for (let vcard of vcards) {
+                    const vnick_dom = vcard.querySelector('.vhead .vnick')
+                    const vnick = vnick_dom.innerHTML
+                    if (vnick === author) {
+                      vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                    }
+                  }
+                }
+                clearInterval(getValineDomTimer)
+              } else {
+                clearInterval(getValineDomTimer)
+              }
+            }, 2000)
+          }
+
+          if ('true' === 'true') {
+            const loadValineTimeout = setTimeout(() => {
+              loadValine()
+              clearTimeout(loadValineTimeout)
+            }, 1000)
+          } else {
+            window.addEventListener('DOMContentLoaded', loadValine)
+          }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%90%9C%E7%B4%A2"><span class="nav-number">1.</span> <span class="nav-text">正则表达式搜索</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E7%BB%84"><span class="nav-number">2.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9E%E7%BB%93%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">连结表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2"><span class="nav-number">5.</span> <span class="nav-text">全文搜索</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%A3%80%E7%B4%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">6.</span> <span class="nav-text">插入检索出的数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">更新表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="nav-number">8.</span> <span class="nav-text">存储过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87"><span class="nav-number">9.</span> <span class="nav-text">游标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">10.</span> <span class="nav-text">触发器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="nav-number">11.</span> <span class="nav-text">事务处理</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2023</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Tzuhan</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <!-- <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div> -->
+        
+        <!-- <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div> -->
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
