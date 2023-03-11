@@ -9,7 +9,7 @@
     
     <title>
         
-            Spring基础-XML实现 |
+            Spring基础-XML实现IoC |
         
         Tzuhan
     </title>
@@ -177,7 +177,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">Spring基础-XML实现</span>
+                <span class="title-hover-animation">Spring基础-XML实现IoC</span>
             </div>
 
             
@@ -203,7 +203,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-03-11 10:03:30</span>
+        <span class="pc">2023-03-11 15:34:02</span>
     </span>
     
     
@@ -257,7 +257,7 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <p>Spring第一集</p>
+                <p>Spring第一集 -&gt; XML实现IoC</p>
 <span id="more"></span>
 <h3 id="获取Bean"><a href="#获取Bean" class="headerlink" title="获取Bean"></a>获取<code>Bean</code></h3><h5 id="根据id获取"><a href="#根据id获取" class="headerlink" title="根据id获取"></a>根据id获取</h5><p>由于 id 属性指定了 bean 的唯一标识，所以根据 bean 标签的 id 属性可以精确获取到一个组件对象。上个实验中我们使用的就是这种方式。</p>
 <h5 id="根据类型获取"><a href="#根据类型获取" class="headerlink" title="根据类型获取"></a>根据类型获取</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testHelloWorld1</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">ApplicationContext</span> <span class="variable">ac</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassPathXmlApplicationContext</span>(<span class="string">&quot;beans.xml&quot;</span>);</span><br><span class="line">    <span class="type">HelloWorld</span> <span class="variable">bean</span> <span class="operator">=</span> ac.getBean(HelloWorld.class);</span><br><span class="line">    bean.sayHello();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -470,7 +470,7 @@
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">Spring基础-注解方式管理Bean</span>
+                                <span class="post-nav-title-item">Spring基础-注解实现IoC</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>

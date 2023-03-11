@@ -9,7 +9,7 @@
     
     <title>
         
-            Spring基础-注解方式管理Bean |
+            Spring基础-注解实现IoC |
         
         Tzuhan
     </title>
@@ -177,7 +177,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">Spring基础-注解方式管理Bean</span>
+                <span class="title-hover-animation">Spring基础-注解实现IoC</span>
             </div>
 
             
@@ -203,7 +203,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-03-11 10:03:35</span>
+        <span class="pc">2023-03-11 15:34:13</span>
     </span>
     
     
@@ -257,7 +257,7 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <p>Spring第二集</p>
+                <p>Spring第二集 -&gt; 注解实现IoC</p>
 <span id="more"></span>
 <h1 id="注解方式实现IOC"><a href="#注解方式实现IOC" class="headerlink" title="注解方式实现IOC"></a>注解方式实现IOC</h1><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入context--&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="string"><span class="tag">       http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="string"><span class="tag">       http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="string"><span class="tag">       http://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--基本写法--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.tzuhan.ioc&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -373,7 +373,7 @@
                                href="/2023/03/08/Spring%E5%9F%BA%E7%A1%80-XML%E5%AE%9E%E7%8E%B0/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Spring基础-XML实现</span>
+                                <span class="post-nav-title-item">Spring基础-XML实现IoC</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
